@@ -1,0 +1,12 @@
+.home__container{
+    width: 100%;
+}
+
+.product__row{
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid;
+    gap: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
