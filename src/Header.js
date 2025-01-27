@@ -6,10 +6,14 @@ import StorefrontIcon from '@mui/icons-material/Storefront';
 import SearchIcon from '@mui/icons-material/Search';
 
 import './Header.css';
+import { useStateValue } from './StateProvider';
+import Login from './Login';
 
 
 
 function Header() {
+    const [state,dispatch] = useStateValue();
+   
     return(
         <div className="header">
             <Link to="/" style={{textDecoration: "none"}}>
@@ -23,10 +27,12 @@ function Header() {
                 <SearchIcon className="header__searchIcon" />
             </div>
             <div className="header__nav">
-                <div className="nav__list">
-                    <span className="nav__list-itemOne">Hello Guest</span>
-                    <span className="nav__list-itemTwo nav__button">Sign In</span>
-                </div>
+                <Link to="/login" style={{textDecoration: "none"}}>
+                    <div className="nav__list">
+                        <span className="nav__list-itemOne">Hello Guest</span>
+                        <span className="nav__list-itemTwo nav__button">Sign In</span>
+                    </div>
+                </Link>
                 <div className="nav__list">
                     <span className="nav__list-itemOne">Your</span>
                     <span className="nav__list-itemTwo">Shop</span>
@@ -34,7 +40,7 @@ function Header() {
                 <Link to="/checkout" style={{textDecoration: "none"}}>
                     <div className="nav__list">
                         <ShoppingCartIcon fontSize="large" className='nav__Cart'/>
-                        <span className="nav__list-item nav__cartCount">60</span>
+                        <span className="nav__list-item nav__cartCount">{state.basket.length}</span>
                     </div>
                 </Link>
             </div>

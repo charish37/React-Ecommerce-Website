@@ -1,6 +1,7 @@
 import React from "react";
 import Home from "./Home";
 import Checkout from "./Checkout";
+import Login from "./Login";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
@@ -25,6 +26,12 @@ const App = () => {
                         </>
                     }>
                     </Route>
+
+                    <Route path="/login" element={
+                        <>
+                         <Login/>
+                        </>
+                    }></Route>
 
                     <Route path="/" element={
                         <>
